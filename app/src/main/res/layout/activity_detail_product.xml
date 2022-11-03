@@ -85,31 +85,31 @@
 
 
 
-            <TextView
-                android:id="@+id/tv_village_contact"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="8dp"
-                android:text="Nama Penjual"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/line_1" />
+<!--            <TextView-->
+<!--                android:id="@+id/tv_seller"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="24dp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="Nama Penjual"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/line_1" />-->
 
-            <TextView
-                android:id="@+id/tv_contact_value"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="8dp"
-                android:text="Nomor Telephone Penjual"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_village_contact" />
+<!--            <TextView-->
+<!--                android:id="@+id/tv_contact_value"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="24dp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="Nomor Telephone Penjual"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/tv_seller" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

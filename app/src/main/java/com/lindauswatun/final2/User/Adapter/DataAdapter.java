@@ -20,8 +20,8 @@ import com.lindauswatun.final2.User.Model.ListModel;
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder> {
-    private Context context;
-    private List<ListModel> list;
+    private final Context context;
+    private final List<ListModel> list;
 
     public DataAdapter(Context context, List<ListModel> list) {
         this.context = context;
@@ -32,7 +32,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
     @Override
     public DataAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_barang,parent,false);
-        return new DataAdapter.ListViewHolder(itemView);
+        return new ListViewHolder(itemView);
     }
 
     @Override
@@ -46,20 +46,17 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
                 .into(holder.fotoBarang);
 
         // Detail Product
-        holder.btnDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent detail = new Intent(context.getApplicationContext(), DetailProduct.class);
-                detail.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                detail.putExtra("NAMA_BARANG", list.get(position).getNama());
-                detail.putExtra("STOK_BARANG", list.get(position).getStok());
-                detail.putExtra("HARGA_BARANG", list.get(position).getHarga());
-                // Gambar belum
+        holder.btnDetail.setOnClickListener(view -> {
+            Intent detail = new Intent(context.getApplicationContext(), DetailProduct.class);
+            detail.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            detail.putExtra("NAMA_BARANG", list.get(holder.getAdapterPosition()).getNama());
+            detail.putExtra("STOK_BARANG", list.get(holder.getAdapterPosition()).getStok());
+            detail.putExtra("HARGA_BARANG", list.get(holder.getAdapterPosition()).getHarga());
+            // Gambar belum muncul
 //                detail.putExtra("GAMBAR_BARANG", list.get(position).getGambar());
-                context.startActivity(detail);
+            context.startActivity(detail);
 
 
-            }
         });
     }
 
@@ -68,7 +65,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
         return list.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    public static class ListViewHolder extends RecyclerView.ViewHolder {
         TextView nama,stok,harga;
         ImageView fotoBarang;
         Button btnDetail;

@@ -29,7 +29,7 @@ import com.lindauswatun.final2.Staff.StaffHomePage;
 public class LoginUser extends AppCompatActivity {
     ProgressBar loading;
     CheckBox showPassUser;
-    EditText username,pass;
+    EditText username, pass;
     TextView register;
     Button btLogin;
     private FirebaseAuth mAuth;
@@ -54,14 +54,14 @@ public class LoginUser extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
         register.setOnClickListener(view -> {
-            startActivity(new Intent(LoginUser.this , RegisterUser.class));
+            startActivity(new Intent(LoginUser.this, RegisterUser.class));
         });
 
         btLogin.setOnClickListener(view -> {
             String getEmail = username.getText().toString();
             String getPass = pass.getText().toString();
 
-            if(getEmail.isEmpty()) {
+            if (getEmail.isEmpty()) {
                 username.setError("Masukkan Email");
                 return;
             }
@@ -71,16 +71,16 @@ public class LoginUser extends AppCompatActivity {
             }
 
 
-            mAuth.signInWithEmailAndPassword(getEmail,getPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.signInWithEmailAndPassword(getEmail, getPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     progressDialog.show();
                     showLoading(true);
-                    if (task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         showLoading(false);
                         Toast.makeText(LoginUser.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginUser.this, HomePageUser.class));
-                    }else{
+                    } else {
                         progressDialog.dismiss();
                         Toast.makeText(LoginUser.this, "Email Dan Password Salah!", Toast.LENGTH_SHORT).show();
                         showLoading(true);
@@ -102,8 +102,9 @@ public class LoginUser extends AppCompatActivity {
         });
 
     }
-    public void onBackPressed(){
-        Intent intent=new Intent(LoginUser.this,MainActivity.class);
+
+    public void onBackPressed() {
+        Intent intent = new Intent(LoginUser.this, MainActivity.class);
         startActivity(intent);
     }
 
