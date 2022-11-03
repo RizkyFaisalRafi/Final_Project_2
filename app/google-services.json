@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "280603332007",
+    "project_id": "final2-98817",
+    "storage_bucket": "final2-98817.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280603332007:android:de61caca06376415a1ba82",
+        "android_client_info": {
+          "package_name": "com.lindauswatun.final2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280603332007-cu1986agpehdv31ejjhsg848as253gdg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lindauswatun.final2",
+            "certificate_hash": "cae5a52e7db888ef908b4e6013222d9909d4d81c"
+          }
+        },
+        {
+          "client_id": "280603332007-gi5vhi9lvroutg8d23dhfopdudm8gtsj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-0W_ILHYb0oP_JH_on9xtQqK7nH7DXBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280603332007-gi5vhi9lvroutg8d23dhfopdudm8gtsj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

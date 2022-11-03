@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Admin.AddStaff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".Admin.AddStaff">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarStaf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back_button"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/hind_bold"
+                android:paddingTop="5dp"
+                android:text="@string/kembali"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/image_add_staff"
+            android:src="@drawable/add_staff" />
+
+        <TextView
+            style="@style/judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/add_staff"
+            android:textColor="@color/biru" />
+
+        <TextView
+            style="@style/keterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="@string/nama_lengkap" />
+
+        <EditText
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:autofillHints="name"
+            android:background="@drawable/input_text"
+            android:hint="@string/doni_wahyudi"
+            android:inputType="text"
+            android:paddingStart="14dp"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/keterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/email" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/input_text"
+            android:hint="@string/doni_gmail_com"
+            android:inputType="textEmailAddress"
+            android:paddingStart="14dp"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/keterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/password" />
+
+        <EditText
+            android:id="@+id/etpass"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_text"
+            android:hint="@string/masukkan_kata_sandi"
+            android:inputType="textPassword"
+            android:paddingStart="14dp"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/showPass"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Password" />
+
+        <TextView
+            style="@style/keterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/konfirmasi_password" />
+
+        <EditText
+            android:id="@+id/et_konfpass"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_text"
+            android:hint="@string/konfirmasi_password"
+            android:inputType="textPassword"
+            android:paddingStart="14dp"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/konf_show_Pass"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Password" />
+
+        <Button
+            android:id="@+id/btAddstaf"
+            style="@style/text"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/input_text"
+            android:backgroundTint="@color/biru"
+            android:text="@string/tambah_staff" />
+
+    </LinearLayout>
+
+</ScrollView>
