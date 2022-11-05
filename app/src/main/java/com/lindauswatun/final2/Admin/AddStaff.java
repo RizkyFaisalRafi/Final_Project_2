@@ -31,11 +31,14 @@ import com.lindauswatun.final2.MainActivity;
 import com.lindauswatun.final2.R;
 import com.lindauswatun.final2.Staff.ModelStaff;
 import com.lindauswatun.final2.User.RegisterUser;
+import com.lindauswatun.final2.databinding.ActivityAddStaffBinding;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AddStaff extends AppCompatActivity {
+
+
     private CheckBox ShowPass, KonfShowPass; // Show Password
     EditText nama,email,password,confpass;
     Button addstaff;

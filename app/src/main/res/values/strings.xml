@@ -67,10 +67,18 @@
     <string name="sign_up">Sign Up</string>
     <string name="about_us">About Us</string>
     <string name="instagram">Instagram</string>
-    <string name="stock_50">Stock: 50</string>
+    <string name="stok_50">Stok: 50</string>
     <string name="rp50_000">Rp50.000</string>
     <string name="stok">Stok :</string>
     <string name="rp">Rp.</string>
-    <string name="log_out">LOG OUT</string>
+    <string name="keluar">Keluar</string>
     <string name="log_out2">Log Out</string>
+    <string name="welcome">Selamat Datang\n</string>
+    <string name="logo_splash_screen">Logo Splash Screen</string>
+    <string name="logo_toko">Logo Toko</string>
+    <string name="user">USER</string>
+    <string name="staff">STAFF</string>
+    <string name="admin">ADMIN</string>
+    <string name="beli">Beli</string>
+    <string name="selamat_datang">Selamat Datang</string>
 </resources>

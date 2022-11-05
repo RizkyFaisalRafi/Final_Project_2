@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,8 +14,11 @@ import android.widget.Button;
 import com.lindauswatun.final2.MainActivity;
 import com.lindauswatun.final2.R;
 
+import java.security.PrivateKey;
+
 public class AdminHomePage extends AppCompatActivity {
     Button addstock, addstaff;
+    SharedPreferences preferences;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -26,6 +30,9 @@ public class AdminHomePage extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.logout){
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
             startActivity(new Intent(this, LoginAdmin.class));
         }
         return super.onOptionsItemSelected(item);
@@ -38,6 +45,7 @@ public class AdminHomePage extends AppCompatActivity {
 
 //        getSupportActionBar().hide();
 
+        preferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE);
 
         addstock = findViewById(R.id.add_stock);
         addstaff = findViewById(R.id.add_staff);

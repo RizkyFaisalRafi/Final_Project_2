@@ -14,7 +14,8 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/image_stock" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
@@ -60,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="4dp"
-                android:text="@string/stock_50"
+                android:text="@string/stok_50"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,39 +78,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_stok" />
-
-
-
-
-
-
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_seller"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="24dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:text="Nama Penjual"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20sp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/line_1" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_contact_value"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="24dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:text="Nomor Telephone Penjual"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="16sp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tv_seller" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,7 +101,7 @@
             android:layout_marginBottom="16dp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="12dp"
-            android:text="Beli"
+            android:text="@string/beli"
             android:textAllCaps="true"
             android:textSize="16sp"
             app:cornerRadius="15dp"

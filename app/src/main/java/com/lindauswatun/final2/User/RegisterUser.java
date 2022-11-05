@@ -5,73 +5,59 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.lindauswatun.final2.Admin.AddStaff;
 import com.lindauswatun.final2.MainActivity;
 import com.lindauswatun.final2.R;
+import com.lindauswatun.final2.databinding.ActivityRegisterUserBinding;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-public class RegisterUser extends AppCompatActivity {
-    ProgressBar loading;
-    CheckBox showPassword, showKonfPass;
-    EditText regName, regEmail, regPass, regPassCon;
-    Button btnRegister;
-    ImageView back;
-    TextView login;
+public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
+    ActivityRegisterUserBinding binding; // View Binding
+
     ProgressDialog progressDialog;
+
+    // Firebase
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
-    static DatabaseReference databaseUsers;
+
+    //    static DatabaseReference databaseUsers;
+
     String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_user);
-        getSupportActionBar().hide();
 
-        loading = findViewById(R.id.progressBar);
-        regName = findViewById(R.id.reg_name);
-        regEmail = findViewById(R.id.reg_email);
-        regPass = findViewById(R.id.reg_pass);
-        regPassCon = findViewById(R.id.ConPassword_reg);
-        showPassword = findViewById(R.id.show_pass_register_user);
-        showKonfPass = findViewById(R.id.show_konfpass_register_user);
-        btnRegister = findViewById(R.id.btnRegister_user);
-        login = findViewById(R.id.tvRegister);
-        back = findViewById(R.id.imgBack2);
-        back.setOnClickListener(view -> {
-            startActivity(new Intent(RegisterUser.this, LoginUser.class));
-        });
+        // View Binding
+        binding = ActivityRegisterUserBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
+        // SetOnClickListener
+        binding.imgBack2.setOnClickListener(this);
+        binding.tvSignIn.setOnClickListener(this);
+        binding.btnRegisterUser.setOnClickListener(this);
+        binding.showPassRegisterUser.setOnClickListener(this);
+        binding.showKonfpassRegisterUser.setOnClickListener(this);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -81,31 +67,42 @@ public class RegisterUser extends AppCompatActivity {
         progressDialog.setMessage("Silahkan Tunggu");
         progressDialog.setCancelable(false);
 
-        login.setOnClickListener(view -> {
-            finish();
-        });
+    }
 
-        btnRegister.setOnClickListener(view -> {
-            String getName = regName.getText().toString();
-            String getEmail = regEmail.getText().toString();
-            String getPass = regPass.getText().toString();
-            String getPass2 = regPassCon.getText().toString();
+    @Override
+    public void onClick(View v) {
+        // Sign In
+        if (v.getId() == R.id.tv_sign_in) {
+            finish();
+        }
+
+        // Button Back
+        else if (v.getId() == R.id.imgBack2) {
+            startActivity(new Intent(RegisterUser.this, LoginUser.class));
+        }
+
+        // Btn Register
+        else if (v.getId() == R.id.btnRegister_user) {
+            String getName = binding.regName.getText().toString();
+            String getEmail = binding.regEmail.getText().toString();
+            String getPass = binding.regPass.getText().toString();
+            String getPass2 = binding.ConPasswordReg.getText().toString();
 
             if (getName.isEmpty()) {
-                regName.setError("Masukkan Nama..");
+                binding.regName.setError("Masukkan Nama..");
                 return;
             }
             if (getEmail.isEmpty()) {
-                regEmail.setError("Masukkan Email");
+                binding.regEmail.setError("Masukkan Email");
                 return;
             }
             if (getPass.isEmpty()) {
-                regPass.setError("Masukkan Password");
+                binding.regPass.setError("Masukkan Password");
                 return;
             }
             if (!getPass.equals(getPass2)) {
-                regPassCon.setError("Password salah");
-                regPassCon.setText("");
+                binding.ConPasswordReg.setError("Password salah");
+                binding.ConPasswordReg.setText("");
                 return;
             }
 
@@ -125,42 +122,39 @@ public class RegisterUser extends AppCompatActivity {
                         user.put("name", getName);
                         user.put("email", getEmail);
                         user.put("password", getPass);
-                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d(TAG, "SUKSES : " + userID);
-                            }
-                        });
+                        documentReference.set(user).addOnSuccessListener(aVoid -> Log.d(TAG, "SUKSES : " + userID));
                     } else { // Gagal
                         progressDialog.dismiss();
                         Toast.makeText(RegisterUser.this, "Register Gagal, Harap isi Form Dengan Benar!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
-        });
+        }
 
         // Show Password
-        showPassword.setOnClickListener(view -> {
-            if (showPassword.isChecked()) {
+        else if (v.getId() == R.id.show_pass_register_user) {
+            if (binding.showPassRegisterUser.isChecked()) {
                 // Saat Checkbox dalam keadaan Checked, maka password akan di tampilkan
-                regPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                binding.regPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // Jika tidak, maka password akan di sembuyikan
-                regPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                binding.regPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
-        });
+        }
 
-        // Show Password
-        showKonfPass.setOnClickListener(view -> {
-            if (showKonfPass.isChecked()) {
+        // Show Konfirmasi Password
+        else if (v.getId() == R.id.show_konfpass_register_user) {
+            if (binding.showKonfpassRegisterUser.isChecked()) {
                 // Saat Checkbox dalam keadaan Checked, maka password akan di tampilkan
-                regPassCon.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                binding.ConPasswordReg.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // Jika tidak, maka password akan di sembuyikan
-                regPassCon.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                binding.ConPasswordReg.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
-        });
+        }
+
     }
+
 
     // Back Button
     public void onBackPressed() {
@@ -171,9 +165,9 @@ public class RegisterUser extends AppCompatActivity {
     // Progress Bar
     private void showLoading(boolean isLoading) {
         if (isLoading) {
-            loading.setVisibility(View.VISIBLE);
+            binding.progressBar.setVisibility(View.VISIBLE);
         } else {
-            loading.setVisibility(View.GONE);
+            binding.progressBar.setVisibility(View.GONE);
         }
     }
 

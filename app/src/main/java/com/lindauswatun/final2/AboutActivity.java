@@ -5,22 +5,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.View;
 
-public class AboutActivity extends AppCompatActivity {
-    ImageView ig1,ig2,ig3;
+import com.lindauswatun.final2.databinding.ActivityAboutBinding;
+
+public class AboutActivity extends AppCompatActivity implements View.OnClickListener {
+
+    ActivityAboutBinding binding; // View Binding
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        // View Binding
+        binding = ActivityAboutBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        ig1 = findViewById(R.id.ig1);
-        ig2 = findViewById(R.id.ig2);
-        ig3 = findViewById(R.id.ig3);
+        // SetOnClickListener
+        binding.ig1.setOnClickListener(this);
+        binding.ig2.setOnClickListener(this);
+        binding.ig3.setOnClickListener(this);
+    }
 
-        ig1.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/lindahasanah_"))));
-        ig2.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/rizky_faisal_rafi"))));
-        ig3.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/wahyurt_"))));
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.ig1) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/lindahasanah_")));
+        } else if (v.getId() == R.id.ig2) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/rizky_faisal_rafi")));
+        } else if (v.getId() == R.id.ig3) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/wahyurt_")));
+        }
     }
 }

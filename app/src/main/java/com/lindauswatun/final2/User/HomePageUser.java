@@ -1,79 +1,84 @@
 package com.lindauswatun.final2.User;
 
+import static android.content.ContentValues.TAG;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.lindauswatun.final2.AboutActivity;
-import com.lindauswatun.final2.MainActivity;
 import com.lindauswatun.final2.R;
-import com.lindauswatun.final2.Staff.LoginStaff;
 import com.lindauswatun.final2.User.ui.main.SectionsPagerAdapter;
 import com.lindauswatun.final2.databinding.ActivityHomePageUserBinding;
-//import com.lindauswatun.final2.User.databinding.ActivityHomePageUserBinding;
+
+import java.util.Objects;
 
 
 public class HomePageUser extends AppCompatActivity {
 
-    private ActivityHomePageUserBinding binding;
+    String uid;
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-//    @Override
-//    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if (item.getItemId() == R.id.logout) {
-//            startActivity(new Intent(this, LoginUser.class));
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+//    SharedPreferences preferences;
 
+    private ActivityHomePageUserBinding binding; // View Binding
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//        preferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE);
+
+        // View Binding
         binding = ActivityHomePageUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // uid
+        uid = getIntent().getStringExtra("uid");
+
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-
-
         binding.viewPager.setAdapter(sectionsPagerAdapter);
-
         binding.tabs.setupWithViewPager(binding.viewPager);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePageUser.this, AboutActivity.class));
-            }
+        // Floating Action Button
+        binding.fab.setOnClickListener(view -> startActivity(new Intent(HomePageUser.this, AboutActivity.class)));
+
+        // Log Out
+        binding.keluarAkunUser.setOnClickListener(view -> {
+//            SharedPreferences.Editor editor =  preferences.edit();
+//            editor.clear();
+//            editor.apply();
+
+            startActivity(new Intent(HomePageUser.this, LoginUser.class));
+            Toast.makeText(HomePageUser.this, "Keluar Akun", Toast.LENGTH_SHORT).show();
         });
 
-        binding.keluarAkunUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePageUser.this, LoginUser.class));
-                Toast.makeText(HomePageUser.this, "Keluar Akun", Toast.LENGTH_SHORT).show();
+
+        firestore.collection("users").get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                    Log.d(TAG, document.getId() + " => " + document.getData() + " ==> " + document.getData().get("name"));
+
+                    if (uid.equals(document.getId())) {
+                        binding.nameUser.setText(getResources().getString(R.string.welcome) + Objects.requireNonNull(document.getData().get("name")) + "!");
+                    }
+                }
+            } else {
+                Log.w(TAG, "Error getting documents.", task.getException());
             }
+
         });
+
 
     }
 }

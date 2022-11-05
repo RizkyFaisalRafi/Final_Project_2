@@ -3,36 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="30dp"
     tools:context=".User.LoginUser">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/image_login_user" />
+        android:contentDescription="@string/image_login_user"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/hind_regular"
-        android:text="@string/e_commerce"
         android:paddingTop="12dp"
+        android:text="@string/e_commerce"
         android:textColor="@color/biru"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="@string/sign_in_to_user"
         android:fontFamily="@font/hind_semibold"
+        android:text="@string/sign_in_to_user"
         android:textColor="@color/biru"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -50,28 +48,30 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginBottom="20dp"
-        android:hint="@string/email"
-        android:paddingStart="14dp"
+        android:autofillHints="emailAddress"
         android:background="@drawable/input_text"
+        android:hint="@string/email"
         android:inputType="textPersonName"
-        android:autofillHints="emailAddress" />
+        android:paddingStart="14dp"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/et_Password_user"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:paddingStart="14dp"
+        android:autofillHints="password"
         android:background="@drawable/input_text"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:autofillHints="password" />
+        android:paddingStart="14dp"
+        tools:ignore="RtlSymmetry" />
 
     <CheckBox
         android:id="@+id/show_Pass_user"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/show_password" />
 
     <Button
@@ -81,19 +81,19 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/input_text"
         android:backgroundTint="@color/navy"
-        android:text="@string/sign_in"
         android:fontFamily="@font/hind_semibold"
-        android:textSize="20sp"/>
+        android:text="@string/sign_in"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:fontFamily="@font/hind_semibold"
         android:layout_gravity="start"
-        android:text="@string/create_new_account" />
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/hind_semibold"
+        android:text="@string/create_new_account"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 
 </LinearLayout>

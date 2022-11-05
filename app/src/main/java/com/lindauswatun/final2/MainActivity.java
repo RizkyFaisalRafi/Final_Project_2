@@ -3,39 +3,47 @@ package com.lindauswatun.final2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 
 import com.lindauswatun.final2.Admin.LoginAdmin;
-import com.lindauswatun.final2.R;
 import com.lindauswatun.final2.Staff.LoginStaff;
 import com.lindauswatun.final2.User.LoginUser;
+import com.lindauswatun.final2.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Objects;
 
-    Button user,admin,staff,about;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    ActivityMainBinding binding; // View Binding
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        // View Binding
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        user = findViewById(R.id.btn_user);
-        admin = findViewById(R.id.btn_admin);
-        staff = findViewById(R.id.btn_staff);
-        about = findViewById(R.id.btn_about);
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
-        user.setOnClickListener(view -> {
+        binding.btnUser.setOnClickListener(this);
+        binding.btnAdmin.setOnClickListener(this);
+        binding.btnStaff.setOnClickListener(this);
+        binding.btnAbout.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btn_user) {
             startActivity(new Intent(MainActivity.this, LoginUser.class));
-        });
-        admin.setOnClickListener(view -> {
+        } else if (v.getId() == R.id.btn_admin) {
             startActivity(new Intent(MainActivity.this, LoginAdmin.class));
-        });
-        staff.setOnClickListener(view -> {
+        } else if (v.getId() == R.id.btn_staff) {
             startActivity(new Intent(MainActivity.this, LoginStaff.class));
-        });
-        about.setOnClickListener(view -> {
+        } else if (v.getId() == R.id.btn_about) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
-        });
+        }
     }
 }

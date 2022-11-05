@@ -2,56 +2,64 @@ package com.lindauswatun.final2.Staff;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.View;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.lindauswatun.final2.MainActivity;
 import com.lindauswatun.final2.R;
+import com.lindauswatun.final2.databinding.ActivityStaffHomePageBinding;
+
+import java.util.Objects;
 
 public class StaffHomePage extends AppCompatActivity {
-    Button logout;
-    TextView nama;
+
+    ActivityStaffHomePageBinding binding;
+
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_home_page);
 
-        logout = findViewById(R.id.log_out);
-        nama = findViewById(R.id.name_staff);
+        // View Binding
+        binding = ActivityStaffHomePageBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
+        uid = getIntent().getStringExtra("uid");
 
-        logout.setOnClickListener(view -> startActivity(new Intent(StaffHomePage.this, LoginStaff.class)));
+        binding.logOut.setOnClickListener(view1 -> {
+            SharedPreferences sharedPreferences = getSharedPreferences("autoLogin", MODE_PRIVATE);
+            sharedPreferences.edit().clear().apply();
+
+            startActivity(new Intent(StaffHomePage.this, LoginStaff.class));
+            finish();
+        });
+
 
         firestore.collection("staff")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                nama.setText(document.getString("name"));
-//                                Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
-                        }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
 
+                            Log.d(TAG, document.getId() + " => " + document.getData() + " ==> " + document.getData().get("name"));
+
+                            if (uid.equals(document.getId())) {
+                                binding.nameStaff.setText(Objects.requireNonNull(document.getData().get("name")).toString());
+                            }
+                        }
+                    } else {
+                        Log.w(TAG, "Error getting documents.", task.getException());
                     }
                 });
     }

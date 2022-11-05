@@ -14,23 +14,12 @@ import com.lindauswatun.final2.R;
 import com.lindauswatun.final2.User.List.Komputer;
 import com.lindauswatun.final2.User.List.Handphone;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ElektronikFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ElektronikFragment extends Fragment {
     ImageView komputer;
     ImageView handphone;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public ElektronikFragment() {
         // Required empty public constructor
@@ -55,34 +44,19 @@ public class ElektronikFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_elektronik, container, false);
         komputer = view.findViewById(R.id.a);
         handphone = view.findViewById(R.id.b);
-        komputer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Komputer.class);
-                startActivity(intent);
-            }
+        komputer.setOnClickListener(view12 -> {
+            Intent intent = new Intent(getActivity(), Komputer.class);
+            startActivity(intent);
         });
-        handphone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent hp = new Intent(getActivity(), Handphone.class);
-                startActivity(hp);
-            }
+        handphone.setOnClickListener(view1 -> {
+            Intent hp = new Intent(getActivity(), Handphone.class);
+            startActivity(hp);
         });
 
         return view;

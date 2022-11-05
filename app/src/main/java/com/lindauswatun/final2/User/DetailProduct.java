@@ -1,33 +1,14 @@
 package com.lindauswatun.final2.User;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.lindauswatun.final2.R;
-import com.lindauswatun.final2.User.Adapter.DataAdapter;
-import com.lindauswatun.final2.User.List.PriaKaos;
-import com.lindauswatun.final2.User.Model.ListModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.lindauswatun.final2.databinding.ActivityDetailProductBinding;
 
 public class DetailProduct extends AppCompatActivity {
-    public static final String ITEM_EXTRA = "item_extra";
 
-    TextView vbarang, vstok, vharga;
-    ImageView vgambar;
     String barang, stok, harga, gambar;
 
     @Override
@@ -35,10 +16,9 @@ public class DetailProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_product);
 
-        vbarang = findViewById(R.id.tv_nama_barang);
-        vstok = findViewById(R.id.tv_stok);
-        vharga = findViewById(R.id.tv_harga_barang);
-        vgambar = findViewById(R.id.iv_product);
+        // View Binding
+        ActivityDetailProductBinding binding = ActivityDetailProductBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Get
         barang = getIntent().getStringExtra("NAMA_BARANG");
@@ -47,15 +27,19 @@ public class DetailProduct extends AppCompatActivity {
         gambar = getIntent().getStringExtra("GAMBAR_BARANG");
 
         // Set Text
-        vbarang.setText(barang);
-        vstok.setText(stok);
-        vharga.setText(harga);
+        binding.tvNamaBarang.setText(barang);
+        binding.tvStok.setText(stok);
+        binding.tvHargaBarang.setText(harga);
+
+        Glide.with(getApplicationContext())
+                .load(gambar)
+                .into(binding.ivProduct);
+
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Detail Produk");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
     }
 
     @Override

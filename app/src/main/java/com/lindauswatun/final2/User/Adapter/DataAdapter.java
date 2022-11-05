@@ -31,7 +31,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
     @NonNull
     @Override
     public DataAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_barang,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_barang, parent, false);
         return new ListViewHolder(itemView);
     }
 
@@ -42,7 +42,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
         holder.harga.setText(list.get(position).getHarga());
         Glide.with(context)
                 .load(list.get(position)
-                .getGambar())
+                        .getGambar())
                 .into(holder.fotoBarang);
 
         // Detail Product
@@ -53,7 +53,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
             detail.putExtra("STOK_BARANG", list.get(holder.getAdapterPosition()).getStok());
             detail.putExtra("HARGA_BARANG", list.get(holder.getAdapterPosition()).getHarga());
             // Gambar belum muncul
-//                detail.putExtra("GAMBAR_BARANG", list.get(position).getGambar());
+            detail.putExtra("GAMBAR_BARANG", list.get(holder.getAdapterPosition()).getGambar());
             context.startActivity(detail);
 
 
@@ -66,9 +66,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
     }
 
     public static class ListViewHolder extends RecyclerView.ViewHolder {
-        TextView nama,stok,harga;
+        TextView nama, stok, harga;
         ImageView fotoBarang;
         Button btnDetail;
+
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
             nama = itemView.findViewById(R.id.namaBarang);
