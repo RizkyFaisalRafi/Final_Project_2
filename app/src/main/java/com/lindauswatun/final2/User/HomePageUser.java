@@ -4,7 +4,6 @@ import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,13 +20,10 @@ import com.lindauswatun.final2.databinding.ActivityHomePageUserBinding;
 
 import java.util.Objects;
 
-
 public class HomePageUser extends AppCompatActivity {
 
     String uid;
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
-//    SharedPreferences preferences;
 
     private ActivityHomePageUserBinding binding; // View Binding
 
@@ -35,8 +31,6 @@ public class HomePageUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        preferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE);
 
         // View Binding
         binding = ActivityHomePageUserBinding.inflate(getLayoutInflater());
@@ -54,14 +48,10 @@ public class HomePageUser extends AppCompatActivity {
 
         // Log Out
         binding.keluarAkunUser.setOnClickListener(view -> {
-//            SharedPreferences.Editor editor =  preferences.edit();
-//            editor.clear();
-//            editor.apply();
 
             startActivity(new Intent(HomePageUser.this, LoginUser.class));
             Toast.makeText(HomePageUser.this, "Keluar Akun", Toast.LENGTH_SHORT).show();
         });
-
 
         firestore.collection("users").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -76,9 +66,6 @@ public class HomePageUser extends AppCompatActivity {
             } else {
                 Log.w(TAG, "Error getting documents.", task.getException());
             }
-
         });
-
-
     }
 }

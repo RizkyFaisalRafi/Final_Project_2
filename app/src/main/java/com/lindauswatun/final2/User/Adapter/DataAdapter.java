@@ -40,10 +40,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
         holder.nama.setText(list.get(position).getNama());
         holder.stok.setText(list.get(position).getStok());
         holder.harga.setText(list.get(position).getHarga());
-        Glide.with(context)
-                .load(list.get(position)
-                        .getGambar())
-                .into(holder.fotoBarang);
+        Glide.with(context).load(list.get(position).getGambar()).into(holder.fotoBarang);
 
         // Detail Product
         holder.btnDetail.setOnClickListener(view -> {
@@ -55,7 +52,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
             // Gambar belum muncul
             detail.putExtra("GAMBAR_BARANG", list.get(holder.getAdapterPosition()).getGambar());
             context.startActivity(detail);
-
 
         });
     }
@@ -76,7 +72,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ListViewHolder
             stok = itemView.findViewById(R.id.stokBarang);
             harga = itemView.findViewById(R.id.hrgBarang);
             fotoBarang = itemView.findViewById(R.id.imgbarang);
-
             btnDetail = itemView.findViewById(R.id.btn_detail);
         }
     }

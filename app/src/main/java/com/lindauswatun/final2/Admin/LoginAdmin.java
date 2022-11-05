@@ -10,20 +10,15 @@ import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.lindauswatun.final2.MainActivity;
-import com.lindauswatun.final2.R;
+import com.lindauswatun.final2.databinding.ActivityLoginAdminBinding;
 
 public class LoginAdmin extends AppCompatActivity {
-    ProgressBar loading;
-    CheckBox showPassword, mRemember;
-    EditText email, password;
-    Button btnLoginAdmin;
+
+    ActivityLoginAdminBinding binding; // ViewBinding
+
     ProgressDialog progressDialog;
     SharedPreferences sharedPreferences;
     boolean isRemembered = false;
@@ -31,19 +26,15 @@ public class LoginAdmin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_admin);
+
+        // View Binding
+        binding = ActivityLoginAdminBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         progressDialog = new ProgressDialog(LoginAdmin.this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Silahkan Tunggu");
         progressDialog.setCancelable(false);
-
-        loading = findViewById(R.id.progressBar);
-        email = findViewById(R.id.et_Username_admin);
-        password = findViewById(R.id.et_Password_admin);
-        showPassword = findViewById(R.id.show_Pass_admin);
-        btnLoginAdmin = findViewById(R.id.btnLogin_admin);
-        mRemember = findViewById(R.id.checkbox);
 
         sharedPreferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE);
         isRemembered = sharedPreferences.getBoolean("CHECKBOX", false); // Default value CheckBock is False
@@ -54,12 +45,12 @@ public class LoginAdmin extends AppCompatActivity {
             finish();
         }
 
-        btnLoginAdmin.setOnClickListener(view -> {
+        binding.btnLoginAdmin.setOnClickListener(view -> {
             showLoading(true);
-            if (!((TextUtils.isEmpty(email.getText().toString())) || (TextUtils.isEmpty(password.getText().toString())) || (TextUtils.isEmpty(mRemember.getText().toString())))) {
-                if (email.getText().toString().equals("admin") && password.getText().toString().equals("admin123") && mRemember.isChecked()) {
+            if (!((TextUtils.isEmpty(binding.etEmailAdmin.getText().toString())) || (TextUtils.isEmpty(binding.etPasswordAdmin.getText().toString())) || (TextUtils.isEmpty(binding.checkbox.getText().toString())))) {
+                if (binding.etEmailAdmin.getText().toString().equals("admin") && binding.etPasswordAdmin.getText().toString().equals("admin123") && binding.checkbox.isChecked()) {
 
-                    boolean checked = mRemember.isChecked();
+                    boolean checked = binding.checkbox.isChecked();
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("CHECKBOX", checked);
                     editor.apply();
@@ -73,7 +64,7 @@ public class LoginAdmin extends AppCompatActivity {
                     progressDialog.dismiss();
 
                 } else {
-                    mRemember.setError("Silahkan Konfirmasi Password");
+                    binding.checkbox.setError("Silahkan Konfirmasi Password");
 
                     showLoading(false);
                     Toast.makeText(this, "Email atau Password Salah dan Silahkan Ceklis Konfirmasi Admin", Toast.LENGTH_SHORT).show();
@@ -85,13 +76,13 @@ public class LoginAdmin extends AppCompatActivity {
         });
 
         // Show Password
-        showPassword.setOnClickListener(view -> {
-            if (showPassword.isChecked()) {
+        binding.showPassAdmin.setOnClickListener(view -> {
+            if (binding.showPassAdmin.isChecked()) {
                 // Saat Checkbox dalam keadaan Checked, maka password akan di tampilkan
-                password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                binding.etPasswordAdmin.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // Jika tidak, maka password akan di sembuyikan
-                password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                binding.etPasswordAdmin.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
 
@@ -106,9 +97,9 @@ public class LoginAdmin extends AppCompatActivity {
     // Progress Bar
     private void showLoading(boolean isLoading) {
         if (isLoading) {
-            loading.setVisibility(View.VISIBLE);
+            binding.progressBar.setVisibility(View.VISIBLE);
         } else {
-            loading.setVisibility(View.GONE);
+            binding.progressBar.setVisibility(View.GONE);
         }
     }
 }

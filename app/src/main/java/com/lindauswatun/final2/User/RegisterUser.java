@@ -1,8 +1,6 @@
 package com.lindauswatun.final2.User;
 
 import static android.content.ContentValues.TAG;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -13,10 +11,6 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,12 +26,11 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     ActivityRegisterUserBinding binding; // View Binding
 
     ProgressDialog progressDialog;
+    boolean isLoading;
 
     // Firebase
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
-
-    //    static DatabaseReference databaseUsers;
 
     String userID;
 
@@ -106,27 +99,24 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                 return;
             }
 
-            mAuth.createUserWithEmailAndPassword(getEmail, getPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    showLoading(true);
-                    progressDialog.show();
-                    if (task.isSuccessful()) { // Sukses
-                        showLoading(true);
-                        progressDialog.dismiss();
-                        Toast.makeText(RegisterUser.this, "Register Berhasil", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterUser.this, LoginUser.class));
-                        userID = mAuth.getCurrentUser().getUid();
-                        DocumentReference documentReference = firestore.collection("users").document(userID);
-                        Map<String, Object> user = new HashMap<>();
-                        user.put("name", getName);
-                        user.put("email", getEmail);
-                        user.put("password", getPass);
-                        documentReference.set(user).addOnSuccessListener(aVoid -> Log.d(TAG, "SUKSES : " + userID));
-                    } else { // Gagal
-                        progressDialog.dismiss();
-                        Toast.makeText(RegisterUser.this, "Register Gagal, Harap isi Form Dengan Benar!", Toast.LENGTH_SHORT).show();
-                    }
+            mAuth.createUserWithEmailAndPassword(getEmail, getPass).addOnCompleteListener(task -> {
+                showLoading();
+                progressDialog.show();
+                if (task.isSuccessful()) { // Sukses
+                    showLoading();
+                    progressDialog.dismiss();
+                    Toast.makeText(RegisterUser.this, "Register Berhasil", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterUser.this, LoginUser.class));
+                    userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+                    DocumentReference documentReference = firestore.collection("users").document(userID);
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("name", getName);
+                    user.put("email", getEmail);
+                    user.put("password", getPass);
+                    documentReference.set(user).addOnSuccessListener(aVoid -> Log.d(TAG, "SUKSES : " + userID));
+                } else { // Gagal
+                    progressDialog.dismiss();
+                    Toast.makeText(RegisterUser.this, "Register Gagal, Harap isi Form Dengan Benar!", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -163,7 +153,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     }
 
     // Progress Bar
-    private void showLoading(boolean isLoading) {
+    private void showLoading() {
         if (isLoading) {
             binding.progressBar.setVisibility(View.VISIBLE);
         } else {

@@ -86,7 +86,8 @@
             android:hint="@string/masukkan_nama_barang"
             android:inputType="text"
             android:paddingStart="14dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             style="@style/keterangan"
@@ -106,7 +107,8 @@
             android:hint="@string/_20"
             android:inputType="number"
             android:paddingStart="14dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             style="@style/keterangan"
@@ -126,7 +128,8 @@
             android:hint="@string/_20_000"
             android:inputType="number"
             android:paddingStart="14dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             style="@style/keterangan"

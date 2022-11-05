@@ -2,23 +2,19 @@ package com.lindauswatun.final2.Admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Button;
-
-import com.lindauswatun.final2.MainActivity;
 import com.lindauswatun.final2.R;
-
-import java.security.PrivateKey;
+import com.lindauswatun.final2.databinding.ActivityAdminHomePageBinding;
 
 public class AdminHomePage extends AppCompatActivity {
-    Button addstock, addstaff;
     SharedPreferences preferences;
+
+    ActivityAdminHomePageBinding binding; // ViewBinding
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,21 +37,15 @@ public class AdminHomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_home_page);
 
-//        getSupportActionBar().hide();
+        // View Binding
+        binding = ActivityAdminHomePageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         preferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE);
 
-        addstock = findViewById(R.id.add_stock);
-        addstaff = findViewById(R.id.add_staff);
-
-        addstock.setOnClickListener(view -> {
-            startActivity(new Intent(AdminHomePage.this, AddStock.class));
-        });
-        addstaff.setOnClickListener(view -> {
-            startActivity(new Intent(AdminHomePage.this, AddStaff.class));
-        });
+        binding.addstock.setOnClickListener(view -> startActivity(new Intent(AdminHomePage.this, AddStock.class)));
+        binding.addstaff.setOnClickListener(view -> startActivity(new Intent(AdminHomePage.this, AddStaff.class)));
 
     }
 }

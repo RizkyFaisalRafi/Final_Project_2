@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,10 +17,8 @@ import com.lindauswatun.final2.databinding.ActivityLoginStaffBinding;
 
 public class LoginStaff extends AppCompatActivity {
 
-    ActivityLoginStaffBinding binding;
+    ActivityLoginStaffBinding binding; // View Binding
 
-    ProgressBar loading;
-    EditText username, pass;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     ProgressDialog progressDialog;
@@ -37,10 +33,6 @@ public class LoginStaff extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        loading = findViewById(R.id.progressBar);
-        username = findViewById(R.id.et_Username_staff);
-        pass = findViewById(R.id.et_Password_staff);
-
         db = FirebaseFirestore.getInstance();
 
         mAuth = FirebaseAuth.getInstance();
@@ -50,15 +42,15 @@ public class LoginStaff extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
         binding.btnLoginStaff.setOnClickListener(view1 -> {
-            String getEmail = username.getText().toString();
-            String getPass = pass.getText().toString();
+            String getEmail = binding.etUsernameStaff.getText().toString();
+            String getPass = binding.etPasswordStaff.getText().toString();
 
             if (getEmail.isEmpty()) {
-                username.setError("Masukkan Email");
+                binding.etUsernameStaff.setError("Masukkan Email");
                 return;
             }
             if (getPass.isEmpty()) {
-                pass.setError("Masukkan Password");
+                binding.etPasswordStaff.setError("Masukkan Password");
                 return;
             }
 
@@ -87,10 +79,10 @@ public class LoginStaff extends AppCompatActivity {
         binding.showPassStaff.setOnClickListener(view12 -> {
             if (binding.showPassStaff.isChecked()) {
                 // Saat Checkbox dalam keadaan Checked, maka password akan di tampilkan
-                pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                binding.etPasswordStaff.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // Jika tidak, maka password akan di sembuyikan
-                pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                binding.etPasswordStaff.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
     }
@@ -117,9 +109,9 @@ public class LoginStaff extends AppCompatActivity {
     // Progress Bar
     private void showLoading(boolean isLoading) {
         if (isLoading) {
-            loading.setVisibility(View.VISIBLE);
+            binding.progressBar.setVisibility(View.VISIBLE);
         } else {
-            loading.setVisibility(View.GONE);
+            binding.progressBar.setVisibility(View.GONE);
         }
     }
 

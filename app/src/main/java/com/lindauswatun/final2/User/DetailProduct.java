@@ -2,7 +2,9 @@ package com.lindauswatun.final2.User;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.bumptech.glide.Glide;
 import com.lindauswatun.final2.R;
 import com.lindauswatun.final2.databinding.ActivityDetailProductBinding;
@@ -47,5 +49,4 @@ public class DetailProduct extends AppCompatActivity {
         finish();
         return true;
     }
-
 }

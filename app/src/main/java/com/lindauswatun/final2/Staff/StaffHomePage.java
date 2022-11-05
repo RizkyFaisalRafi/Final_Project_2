@@ -12,21 +12,18 @@ import android.view.View;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.lindauswatun.final2.R;
 import com.lindauswatun.final2.databinding.ActivityStaffHomePageBinding;
 
 import java.util.Objects;
 
 public class StaffHomePage extends AppCompatActivity {
 
-    ActivityStaffHomePageBinding binding;
-
+    ActivityStaffHomePageBinding binding; // ViewBinding
     String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_staff_home_page);
 
         // View Binding
         binding = ActivityStaffHomePageBinding.inflate(getLayoutInflater());
@@ -37,7 +34,7 @@ public class StaffHomePage extends AppCompatActivity {
 
         uid = getIntent().getStringExtra("uid");
 
-        binding.logOut.setOnClickListener(view1 -> {
+        binding.logout.setOnClickListener(view1 -> {
             SharedPreferences sharedPreferences = getSharedPreferences("autoLogin", MODE_PRIVATE);
             sharedPreferences.edit().clear().apply();
 

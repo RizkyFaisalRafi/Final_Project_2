@@ -7,8 +7,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="sign_in_to_staff">Sign In to Staff</string>
-    <string name="sign_in_to_admin">Sign In to Admin</string>
 
     <string-array name="itemBarang">
         <item>-- Pilih barang --</item>
@@ -32,7 +30,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="back_button">Back_Button</string>
     <string name="kembali">Kembali</string>
-    <string name="add_stock">ADD STOCK</string>
+    <string name="add_stock">Tambahkan Produk</string>
     <string name="image_add_stock">Image Add Stock</string>
     <string name="kategori">Kategori</string>
     <string name="nama_barang">Nama Barang</string>
@@ -43,9 +41,9 @@
     <string name="_20_000">20.000</string>
     <string name="upload_gambar">Upload Gambar</string>
     <string name="image_stock">Image Stock</string>
-    <string name="tambah_stok">Tambah Stok</string>
+    <string name="tambah_stok">Tambah Produk</string>
     <string name="image_add_staff">Image Add Staff</string>
-    <string name="add_staff">ADD STAFF</string>
+    <string name="tambahkan_staff">Tambahkan Staf</string>
     <string name="nama_lengkap">Nama Lengkap</string>
     <string name="doni_wahyudi">Doni Wahyudi</string>
     <string name="email">Email</string>
@@ -53,23 +51,24 @@
     <string name="password">Password</string>
     <string name="masukkan_kata_sandi">Masukkan Kata Sandi</string>
     <string name="konfirmasi_password">Konfirmasi Password</string>
-    <string name="tambah_staff">Tambah Staff</string>
+    <string name="tambah_staff">Tambah Staf</string>
+
     <string name="image_login_admin">Image Login Admin</string>
+
     <string name="e_commerce">E-COMMERCE</string>
-    <string name="show_password">Show Password</string>
-    <string name="sign_in_to_user">Sign In to User</string>
+
+
     <string name="image_login_user">Image Login User</string>
-    <string name="create_new_account">Create New Account</string>
-    <string name="sign_in">Sign In</string>
+
     <string name="image_register_user">Image Register User</string>
-    <string name="register">REGISTER</string>
-    <string name="back_to_sign_in">Back to Sign In</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="about_us">About Us</string>
+    <string name="register">Registrasi</string>
+    <string name="back_to_sign_in">Sudah punya akun? Masuk</string>
+
+    <string name="about_us">Tentang Kami</string>
     <string name="instagram">Instagram</string>
     <string name="stok_50">Stok: 50</string>
     <string name="rp50_000">Rp50.000</string>
-    <string name="stok">Stok :</string>
+    <string name="stok">Stok: </string>
     <string name="rp">Rp.</string>
     <string name="keluar">Keluar</string>
     <string name="log_out2">Log Out</string>
@@ -77,8 +76,18 @@
     <string name="logo_splash_screen">Logo Splash Screen</string>
     <string name="logo_toko">Logo Toko</string>
     <string name="user">USER</string>
-    <string name="staff">STAFF</string>
+    <string name="staff">STAF</string>
     <string name="admin">ADMIN</string>
     <string name="beli">Beli</string>
     <string name="selamat_datang">Selamat Datang</string>
+    <string name="masuk">Masuk</string>
+    <string name="tampilkan_kata_sandi">Tampilkan Kata Sandi</string>
+    <string name="masuk_admin">Masuk Admin</string>
+    <string name="konfirmasi_admin">Konfirmasi Admin</string>
+    <string name="selamat_datang_admin">Selamat Datang, Admin</string>
+    <string name="tambah_produk">🛒 Tambah Produk</string>
+    <string name="tambah_staf">🧑‍💼 Tambah Staf</string>
+    <string name="masuk_staf">Masuk Staf</string>
+    <string name="buat_akun_baru">Buat Akun Baru</string>
+    <string name="masuk_pengguna">Masuk Pengguna</string>
 </resources>

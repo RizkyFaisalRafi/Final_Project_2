@@ -1,9 +1,9 @@
 package com.lindauswatun.final2.User.Model;
 
 public class ListModel {
-    private String nama,stok,harga,gambar;
+    private String nama, stok, harga, gambar;
 
-    public ListModel(String nama, String stok, String harga,String gambar) {
+    public ListModel(String nama, String stok, String harga, String gambar) {
         this.nama = nama;
         this.stok = stok;
         this.harga = harga;
@@ -42,7 +42,7 @@ public class ListModel {
         this.harga = harga;
     }
 
-    public ListModel(){
+    public ListModel() {
 
     }
 }

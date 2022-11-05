@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginRight="30dp"
-    android:layout_marginLeft="30dp"
     android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp"
     tools:context=".Admin.LoginAdmin">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/image_login_admin" />
+        android:contentDescription="@string/image_login_admin"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/hind_regular"
-        android:text="@string/e_commerce"
         android:paddingTop="12dp"
+        android:text="@string/e_commerce"
         android:textColor="@color/biru"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="@string/sign_in_to_admin"
         android:fontFamily="@font/hind_semibold"
+        android:text="@string/masuk_admin"
         android:textColor="@color/biru"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -46,32 +44,35 @@
         tools:visibility="visible" />
 
     <EditText
-        android:id="@+id/et_Username_admin"
+        android:id="@+id/et_email_admin"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginBottom="20dp"
-        android:hint="@string/email"
-        android:paddingStart="14dp"
         android:background="@drawable/input_text"
-        android:inputType="textPersonName" />
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="14dp"
+        android:autofillHints="emailAddress"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/et_Password_admin"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:paddingStart="14dp"
+        android:autofillHints="password"
         android:background="@drawable/input_text"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:autofillHints="password" />
+        android:paddingStart="14dp"
+        tools:ignore="RtlSymmetry" />
 
     <CheckBox
         android:id="@+id/show_Pass_admin"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/show_password" />
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/tampilkan_kata_sandi" />
 
     <Button
         android:id="@+id/btnLogin_admin"
@@ -79,14 +80,14 @@
         android:layout_height="45dp"
         android:background="@drawable/input_text"
         android:backgroundTint="@color/navy"
-        android:text="Sign In"
         android:fontFamily="@font/hind_semibold"
-        android:textSize="20sp"/>
-    
+        android:text="@string/masuk"
+        android:textSize="20sp" />
+
     <CheckBox
+        android:id="@+id/checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkbox"
-        android:text="Konfirmasi Admin"/>
+        android:text="@string/konfirmasi_admin" />
 
 </LinearLayout>

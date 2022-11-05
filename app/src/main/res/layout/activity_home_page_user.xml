@@ -20,10 +20,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/hind_semibold"
-                android:textAlignment="viewStart"
                 android:minHeight="?actionBarSize"
                 android:padding="@dimen/appbar_padding"
                 android:text="@string/title_home"
+                android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -42,7 +42,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginEnd="4dp"
-                    android:contentDescription="@string/log_out"
+                    android:contentDescription="@string/keluar"
                     android:src="@drawable/log_out" />
 
                 <TextView
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:fontFamily="@font/hind_semibold"
-                    android:text="@string/log_out2"
+                    android:text="@string/keluar"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 

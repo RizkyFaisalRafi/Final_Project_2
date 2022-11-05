@@ -24,7 +24,7 @@
         android:textColor="@color/black" />
 
     <Button
-        android:id="@+id/log_out"
+        android:id="@+id/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="61dp"

@@ -9,6 +9,8 @@
     <ImageView
         android:id="@+id/iv_product"
         android:layout_width="match_parent"
+        android:src="@drawable/ic_no_image"
+        android:padding="16dp"
         android:layout_height="250dp"
         android:background="@color/limeade"
         android:scaleType="fitXY"

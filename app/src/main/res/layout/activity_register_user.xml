@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:text="@string/show_password" />
+            android:text="@string/tampilkan_kata_sandi" />
 
         <TextView
             style="@style/keterangan"
@@ -160,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:text="@string/show_password" />
+            android:text="@string/tampilkan_kata_sandi" />
 
         <Button
             android:id="@+id/btnRegister_user"
@@ -172,7 +172,7 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/input_text"
             android:backgroundTint="@color/biru"
-            android:text="@string/sign_up" />
+            android:text="@string/register" />
 
         <TextView
             android:id="@+id/tv_sign_in"
