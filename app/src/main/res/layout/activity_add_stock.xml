@@ -126,7 +126,7 @@
             android:autofillHints="Harga Barang"
             android:background="@drawable/input_text"
             android:hint="@string/_20_000"
-            android:inputType="number"
+            android:inputType="text"
             android:paddingStart="14dp"
             android:textSize="14sp"
             tools:ignore="RtlSymmetry" />
