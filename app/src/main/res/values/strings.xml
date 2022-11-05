@@ -90,4 +90,16 @@
     <string name="masuk_staf">Masuk Staf</string>
     <string name="buat_akun_baru">Buat Akun Baru</string>
     <string name="masuk_pengguna">Masuk Pengguna</string>
+    <string name="pakaian_pria_dan_perlengkapan_lain">Pakaian Pria dan Perlengkapan Lain</string>
+    <string name="pakaian_wanita_dan_perlengkapan_lain">Pakaian Wanita dan Perlengkapan Lain</string>
+    <string name="komputer">Komputer</string>
+    <string name="handphone">Handphone</string>
+    <string name="buku">Buku</string>
+    <string name="barang_lainnya">Barang Lainnya</string>
+    <string name="kaos">Kaos</string>
+    <string name="pakaian_formal">Pakaian Formal</string>
+    <string name="celana">Celana</string>
+    <string name="sepatu">Sepatu</string>
+    <string name="rok_wanita">Rok Wanita</string>
+    <string name="gaun_wanita">Gaun Wanita</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.lindauswatun.final2.User;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -84,8 +86,9 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
 
     private void storeLogInUser(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-
+            showLoading(true);
             if (task.isSuccessful()) { // Berhasil
+                showLoading(false);
 
                 // Get UID
                 FirebaseUser user = mAuth.getCurrentUser();
@@ -99,7 +102,7 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
             } else { // Gagal
                 progressDialog.dismiss();
                 Toast.makeText(LoginUser.this, "Email Dan Password Salah!", Toast.LENGTH_SHORT).show();
-                showLoading(true);
+                showLoading(false);
             }
         });
     }

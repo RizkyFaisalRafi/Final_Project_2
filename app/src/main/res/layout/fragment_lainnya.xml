@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".User.ui.lainnya.LainnyaFragment">
 
@@ -16,28 +16,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="3dp">
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
                 <ImageView
                     android:id="@+id/book"
                     android:layout_width="match_parent"
                     android:layout_height="259dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/bg_book"
-                    android:layout_margin="10dp"/>
+                    android:contentDescription="@string/image_stock" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Books"
-                    android:layout_centerInParent="false"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/buku"
                     android:textColor="#3A3F43"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -45,30 +48,33 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
-            app:cardUseCompatPadding="true"
             android:layout_marginTop="3dp"
-            app:cardElevation="3dp">
+            android:foreground="?attr/selectableItemBackground"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
                 <ImageView
                     android:id="@+id/other"
                     android:layout_width="match_parent"
                     android:layout_height="259dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/bg_other"
-                    android:layout_margin="10dp"/>
+                    android:contentDescription="@string/image_stock" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Other Item"
-                    android:layout_centerInParent="false"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/barang_lainnya"
                     android:textColor="#3A3F43"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".User.List.Pria">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
@@ -21,6 +21,7 @@
                 android:id="@+id/imgBack2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/back_button"
                 android:src="@drawable/back" />
 
             <TextView
@@ -29,7 +30,7 @@
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/hind_bold"
                 android:paddingTop="5dp"
-                android:text="Kembali"
+                android:text="@string/kembali"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </androidx.appcompat.widget.Toolbar>
@@ -44,22 +45,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/kaos"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/kaos" />
+                    android:background="@drawable/kaos"
+                    android:contentDescription="@string/image_stock" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
-                    android:text="T-Shirt"
+                    android:text="@string/kaos"
                     android:textColor="#3A3F43"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -75,22 +77,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/formalP"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/formal" />
+                    android:background="@drawable/formal"
+                    android:contentDescription="@string/image_stock" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
-                    android:text="Formal"
+                    android:text="@string/pakaian_formal"
                     android:textColor="#3A3F43"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -106,22 +109,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/celana"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/celana" />
+                    android:background="@drawable/celana"
+                    android:contentDescription="@string/image_stock" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
-                    android:text="Bottom Wear"
+                    android:text="@string/celana"
                     android:textColor="#3A3F43"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -137,22 +141,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/shoes"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/shoes" />
+                    android:background="@drawable/shoes"
+                    android:contentDescription="@string/image_stock" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
-                    android:text="Shoes"
+                    android:text="@string/sepatu"
                     android:textColor="#3A3F43"
                     android:textStyle="bold" />
             </LinearLayout>

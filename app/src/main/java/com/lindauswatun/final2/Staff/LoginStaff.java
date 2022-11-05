@@ -59,6 +59,7 @@ public class LoginStaff extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         showLoading(true);
                         if (task.isSuccessful()) { // Berhasil
+                            showLoading(false);
                             //Get UID
                             FirebaseUser user = mAuth.getCurrentUser();
                             assert user != null;
@@ -68,8 +69,8 @@ public class LoginStaff extends AppCompatActivity {
                             processData(uid);
 
                         } else { // Gagal
+                            showLoading(false);
                             Toast.makeText(LoginStaff.this, "Email Dan Password Salah!", Toast.LENGTH_SHORT).show();
-                            showLoading(true);
                         }
                     });
             progressDialog.dismiss();

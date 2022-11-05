@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/biru">
+
             <ImageView
                 android:id="@+id/imgBack2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/image_stock"
                 android:src="@drawable/back" />
 
             <TextView
@@ -25,7 +29,7 @@
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/hind_bold"
                 android:paddingTop="5dp"
-                android:text="Kembali"
+                android:text="@string/kembali"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </androidx.appcompat.widget.Toolbar>
@@ -34,28 +38,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="3dp">
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
                 <ImageView
                     android:id="@+id/skirt"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/skirt"
-                    android:layout_margin="10dp"/>
+                    android:contentDescription="@string/image_stock" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Skirt"
-                    android:layout_centerInParent="false"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/rok_wanita"
                     android:textColor="#3A3F43"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -63,28 +70,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="3dp">
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
                 <ImageView
                     android:id="@+id/formal"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/formal_women"
-                    android:layout_margin="10dp"/>
+                    android:contentDescription="@string/image_stock" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Formal"
-                    android:layout_centerInParent="false"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/pakaian_formal"
                     android:textColor="#3A3F43"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -92,28 +102,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="3dp">
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
                 <ImageView
                     android:id="@+id/dress"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/dress"
-                    android:layout_margin="10dp"/>
+                    android:contentDescription="@string/image_stock" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dress"
-                    android:layout_centerInParent="false"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/gaun_wanita"
                     android:textColor="#3A3F43"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -121,28 +134,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="3dp">
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
                 <ImageView
                     android:id="@+id/shoesW"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/sepatu"
-                    android:layout_margin="10dp"/>
+                    android:contentDescription="@string/image_stock" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shoes"
-                    android:layout_centerInParent="false"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/sepatu"
                     android:textColor="#3A3F43"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
