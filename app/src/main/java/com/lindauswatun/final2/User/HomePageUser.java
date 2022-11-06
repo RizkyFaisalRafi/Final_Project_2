@@ -48,24 +48,24 @@ public class HomePageUser extends AppCompatActivity {
 
         // Log Out
         binding.keluarAkunUser.setOnClickListener(view -> {
-
             startActivity(new Intent(HomePageUser.this, LoginUser.class));
             Toast.makeText(HomePageUser.this, "Keluar Akun", Toast.LENGTH_SHORT).show();
         });
 
-        firestore.collection("users").get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                for (QueryDocumentSnapshot document : task.getResult()) {
-
-                    Log.d(TAG, document.getId() + " => " + document.getData() + " ==> " + document.getData().get("name"));
-
-                    if (uid.equals(document.getId())) {
-                        binding.nameUser.setText(getResources().getString(R.string.welcome) + Objects.requireNonNull(document.getData().get("name")) + "!");
-                    }
-                }
-            } else {
-                Log.w(TAG, "Error getting documents.", task.getException());
-            }
-        });
+//        firestore.collection("users").get().addOnCompleteListener(task -> {
+//            if (task.isSuccessful()) {
+//                for (QueryDocumentSnapshot document : task.getResult()) {
+//
+//                    Log.d(TAG, document.getId() + " => " + document.getData() + " ==> " + document.getData().get("name"));
+//
+//                    if (uid.equals(document.getId())) {
+////                        binding.nameUser.setText(getResources().getString(R.string.welcome) + Objects.requireNonNull(document.getData().get("name")) + "!");
+//                        binding.nameUser.setText(Objects.requireNonNull(document.getData().get("name")).toString());
+//                    }
+//                }
+//            } else {
+//                Log.w(TAG, "Error getting documents.", task.getException());
+//            }
+//        });
     }
 }

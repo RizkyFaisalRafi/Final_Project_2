@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".User.List.Wanita">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
                 android:id="@+id/imgBack2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/image_stock"
+
                 android:src="@drawable/back" />
 
             <TextView
@@ -44,8 +45,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/skirt"
@@ -76,8 +76,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/formal"
@@ -108,8 +107,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/dress"
@@ -140,8 +138,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/shoesW"

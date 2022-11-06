@@ -40,8 +40,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-fragment:2.4.1'
-    implementation 'androidx.navigation:navigation-ui:2.4.1'
+    implementation 'androidx.navigation:navigation-fragment:2.5.3'
+    implementation 'androidx.navigation:navigation-ui:2.5.3'
     implementation 'com.google.firebase:firebase-firestore:24.4.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -53,4 +53,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage'
 
     implementation 'com.github.bumptech.glide:glide:4.14.2'
+
+    // Bottom Navgiasi Bar
+    implementation 'com.google.android.material:material:1.7.0'
+
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <!-- Home Navigation -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.lindauswatun.final2.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+
+        <!-- Action to Profiles -->
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_profiles"
+            app:destination="@id/navigation_profiles" />
+
+        <!-- Action to Login Pages -->
+        <action
+            android:id="@+id/action_navigation_home_to_loginUser"
+            app:destination="@id/loginUser" />
+
+        <!-- Action to Login Staff -->
+        <action
+            android:id="@+id/action_navigation_home_to_loginStaff"
+            app:destination="@id/loginStaff" />
+
+        <!-- Action to Login Admin -->
+        <action
+            android:id="@+id/action_navigation_home_to_loginAdmin"
+            app:destination="@id/loginAdmin" />
+
+        <!-- Action to About Activity -->
+        <action
+            android:id="@+id/action_navigation_home_to_aboutActivity"
+            app:destination="@id/aboutActivity" />
+
+    </fragment>
+
+    <!-- Profile -->
+    <fragment
+        android:id="@+id/navigation_profiles"
+        android:name="com.lindauswatun.final2.ui.notifications.NotificationsFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <!-- Login User -->
+    <activity
+        android:id="@+id/loginUser"
+        android:name="com.lindauswatun.final2.User.LoginUser"
+        android:label="activity_login_user"
+        tools:layout="@layout/activity_login_user">
+    </activity>
+
+    <!-- Login Staff -->
+    <activity
+        android:id="@+id/loginStaff"
+        android:name="com.lindauswatun.final2.Staff.LoginStaff"
+        android:label="activity_login_staff"
+        tools:layout="@layout/activity_login_staff" />
+
+    <!-- Login Admin -->
+    <activity
+        android:id="@+id/loginAdmin"
+        android:name="com.lindauswatun.final2.Admin.LoginAdmin"
+        android:label="activity_login_admin"
+        tools:layout="@layout/activity_login_admin" />
+
+    <!-- About Pages -->
+    <activity
+        android:id="@+id/aboutActivity"
+        android:name="com.lindauswatun.final2.AboutActivity"
+        android:label="activity_about"
+        tools:layout="@layout/activity_about" />
+
+
+</navigation>

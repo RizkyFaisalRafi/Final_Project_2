@@ -18,7 +18,7 @@
             android:background="@color/biru">
 
             <ImageView
-                android:id="@+id/imgBack2"
+                android:id="@+id/imgBackPria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/back_button"

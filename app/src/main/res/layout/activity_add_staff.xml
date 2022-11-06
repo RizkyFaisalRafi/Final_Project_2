@@ -118,10 +118,10 @@
 
         <CheckBox
             android:id="@+id/showPass"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:text="@string/tampilkan_kata_sandi"
             tools:ignore="HardcodedText" />
 
@@ -148,10 +148,10 @@
 
         <CheckBox
             android:id="@+id/konf_show_Pass"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:text="@string/tampilkan_kata_sandi"
             tools:ignore="HardcodedText" />
 

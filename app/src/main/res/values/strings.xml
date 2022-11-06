@@ -102,4 +102,6 @@
     <string name="sepatu">Sepatu</string>
     <string name="rok_wanita">Rok Wanita</string>
     <string name="gaun_wanita">Gaun Wanita</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="profile">Profile</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.lindauswatun.final2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.View;
 
 import com.lindauswatun.final2.User.LoginUser;
 import com.lindauswatun.final2.databinding.ActivitySplashScreenBinding;
+import com.lindauswatun.final2.ui.home.HomeFragment;
 
 import java.util.Objects;
 
@@ -34,7 +36,8 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, BottomNavigationActivity.class));
+
                 finish(); // Agar tampilan tidak bisa kembali ke halaman sebelumnya
             }
         }, 3000); // 3000 = delay 3 detik bagian splash screen

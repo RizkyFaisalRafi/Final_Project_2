@@ -88,11 +88,11 @@ public class LoginAdmin extends AppCompatActivity {
 
     }
 
-    // Back Button
-    public void onBackPressed() {
-        Intent intent = new Intent(LoginAdmin.this, MainActivity.class);
-        startActivity(intent);
-    }
+//    // Back Button
+//    public void onBackPressed() {
+//        Intent intent = new Intent(LoginAdmin.this, MainActivity.class);
+//        startActivity(intent);
+//    }
 
     // Progress Bar
     private void showLoading(boolean isLoading) {

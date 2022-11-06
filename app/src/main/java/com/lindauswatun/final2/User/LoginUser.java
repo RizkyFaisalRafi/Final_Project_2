@@ -119,11 +119,11 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
         });
     }
 
-    // Back Button
-    public void onBackPressed() {
-        Intent intent = new Intent(LoginUser.this, MainActivity.class);
-        startActivity(intent);
-    }
+//    // Back Button
+//    public void onBackPressed() {
+//        Intent intent = new Intent(LoginUser.this, MainActivity.class);
+//        startActivity(intent);
+//    }
 
     // Progress Bar
     private void showLoading(boolean isLoading) {
